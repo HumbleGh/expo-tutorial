@@ -1,8 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from './screens/Login';
+import Home from './screens/Home';
+import Cart from './screens/Cart';
 
 
 export default function App() {
@@ -11,11 +14,11 @@ export default function App() {
   return (
     <View>
         <NavigationContainer>
-          <MainNavigator>
-            <MainNavigator.Screen name="Logn" component={Login} />
+          <MainNavigator.Navigator initialRouteName="Login" >
+            <MainNavigator.Screen name="Login" component={Login} />
             <MainNavigator.Screen name="Home" component={Home} />
             <MainNavigator.Screen name="Cart" component={Cart} />
-          </MainNavigator>
+          </MainNavigator.Navigator>
         </NavigationContainer>
     </View>
   );
