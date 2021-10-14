@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, Touchable } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Pressable } from 'react-native';
 import { AntDesign} from '@expo/vector-icons';
 
 
@@ -23,7 +23,12 @@ export default function Login() {
         <Text style={{color: "black", fontSize: 30, fontWeight: "600" }} > 
           Power Bike Shop
         </Text>
-        <TouchableOpacity 
+        <Pressable
+         android_ripple
+         onPress={() => {
+             alert("Hi")
+         }}
+        // <TouchableOpacity 
            style={{ 
             backgroundColor: "#e3e3e3", 
             padding: 10, 
@@ -35,12 +40,17 @@ export default function Login() {
             
             }} >
             <AntDesign name="google" size={24} color="rgb(256, 10, 10)" /> 
-             <Text style={{fontSize: 20, marginLeft: 15,
+             <Text style={{fontSize: 17, marginLeft: 15,
                         }} >Login with Gmail
                         </Text>
-         </TouchableOpacity>
+                    </Pressable>
+         {/* </TouchableOpacity> */}
 
          <TouchableOpacity 
+            onPress={() => {
+                navigation.navigate("Home")
+            }}
+            activeOpacity={0.8}
            style={{ 
             backgroundColor: "black", 
             padding: 10, 
