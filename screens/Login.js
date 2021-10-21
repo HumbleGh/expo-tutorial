@@ -1,54 +1,59 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity, Pressable } from 'react-native';
-import { AntDesign} from '@expo/vector-icons';
-
-
+import React from "react";
+import {
+	Text,
+	View,
+	SafeAreaView,
+	Image,
+	TouchableOpacity,
+} from "react-native";
+import tailwind from "tailwind-rn";
+import Icon from "react-native-vector-icons/AntDesign";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 
 export default function Login() {
-    return (
-    <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white"}}>
-        <Image 
-            style={{
-                width: 200,
-                height: 200,
-                borderRadius: 10,
-                marginBottom: 50,
-                borderRadius: 20,            
-                transform: [{rotate: "45deg"}]
-            }}
-        source={require("../assets/girls.jpg")} 
-    />
-        <Text style={{  color: "rgba(0,0,0,0.6)", fontSize: 24}}>Welcome to</Text>
-        <Text style={{color: "black", fontSize: 30, fontWeight: "600" }} > 
-          Power Bike Shop
-        </Text>
-        <Pressable
-         android_ripple
-         onPress={() => {
-             alert("Hi")
-         }}
-        // <TouchableOpacity 
-           style={{ 
-            backgroundColor: "#e3e3e3", 
-            padding: 10, 
-            paddingHorizontal: 60,
-            borderRadius: 10,
-            flexDirection: "row",
-            alignItems: "center",
-            marginTop: 20,
-            
-            }} >
-            <AntDesign name="google" size={24} color="rgb(256, 10, 10)" /> 
-             <Text style={{fontSize: 17, marginLeft: 15,
-                        }} >Login with Gmail
-                        </Text>
-                    </Pressable>
-         {/* </TouchableOpacity> */}
+	return (
+		<SafeAreaView
+			style={tailwind(
+				"h-full w-full flex flex-col justify-center items-center bg-white px-6"
+			)}
+		>
+			<View style={tailwind("flex flex-col items-center w-full")}>
+				<Image
+					source={require("../assets/images/car1.jpg")}
+					style={{
+						...tailwind("h-56 w-56 rounded-2xl"),
+						transform: [{ rotate: "45deg" }],
+					}}
+				/>
 
-         <TouchableOpacity 
-            onPress={() => {
-                navigation.navigate("Home")
+				<Text style={tailwind("mt-16 text-3xl")}>Welcome to</Text>
+
+				<Text style={tailwind("mt-2 text-4xl font-bold")}>
+					Power Car Shop
+				</Text>
+
+				<View
+					style={tailwind(
+						"flex flex-col items-center w-full mt-8 px-5"
+					)}
+				>
+					<TouchableOpacity
+						style={tailwind(
+							"bg-gray-100 w-full items-center rounded-xl py-4"
+						)}
+					>
+						<View style={tailwind("items-center flex flex-row")}>
+							<Icon name="google" size={25} color="#900" />
+							<Text style={tailwind("text-lg font-bold ml-2")}>
+								Login with Gmail
+							</Text>
+						</View>
+					</TouchableOpacity>
+
+                    <TouchableOpacity
+             onPress={() => {
+                navigation.navigate("Home");
             }}
             activeOpacity={0.8}
            style={{ 
@@ -61,20 +66,25 @@ export default function Login() {
             marginTop: 20,
             
             }} >
-            
+           
             <AntDesign name="apple1" size={24} color="white" /> 
              <Text style={{fontSize: 20,
                             color: "white",
                             marginLeft: 15,
                         }} >Login with Apple</Text>
          </TouchableOpacity>
-        
-        <TouchableOpacity>
-         <Text style={{color: "grey", marginTop: 10, fontWeight: "500"}} > 
-             Not a member? 
-            <Text style={{color: 'orange', fontWeight: "bold"}} > Signup </Text>
-            </Text>
-        </TouchableOpacity>
-    </View>
-    );
+         
+					<View style={tailwind("flex flex-row mt-4")}>
+						<Text style={tailwind("text-gray-500")}>
+							Not a member?
+						</Text>
+						<Text style={tailwind("font-bold text-yellow-500")}>
+							{" "}
+							Sign Up
+						</Text>
+					</View>
+				</View>
+			</View>
+		</SafeAreaView>
+	);
 }
